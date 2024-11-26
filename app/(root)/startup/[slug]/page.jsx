@@ -39,12 +39,14 @@ const page = async ({ params }) => {
       </section>
 
       <section className="section_container">
-        <img 
+        <Image
           src={post?.image} 
           alt={`${post?.title} Picture`} 
+          width={500}
+          height={400}
           className="w-full h-auto rounded-xl" 
         />
-        <div className=" space-y-5 max-w-4xl mx-auto mt-10">
+        <div className="space-y-5 max-w-4xl mx-auto mt-10">
           <div className="gap-5 flex-between">
             <Link 
               href={`/user/${post?.author?._id}`} 
@@ -85,7 +87,7 @@ const page = async ({ params }) => {
           {
             editorPosts?.length > 0 && (
               <div className="max-w-4xl mx-auto">
-                <p className="text-30-semibold">Editor's Pick</p>
+                <p className="text-30-semibold">Editor&apos;s Pick</p>
 
                 <ul className="card_grid-sm mt-7">
                   {

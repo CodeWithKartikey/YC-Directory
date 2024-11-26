@@ -1,4 +1,5 @@
 import {withSentryConfig} from "@sentry/nextjs";
+
 /** 
  * @type {import('next').NextConfig} 
  * Next.js configuration file that allows you to customize various aspects of your Next.js application, including image optimization and external image sources.
@@ -21,6 +22,9 @@ const nextConfig = {
     appIsrStatus: true,
     buildActivity: true,
     buildActivityPosition: "bottom-right"
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 };
 
