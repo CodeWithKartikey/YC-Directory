@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    // Configure module resolution paths to set up aliases, making it easier to import files with shorter paths.
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"]  // The "@" alias points to the root directory. For example, "@/components" would refer to "./components".
     }
   }
 }

@@ -1,3 +1,9 @@
+/**
+ *This configuration enforces best practices for performance and SEO, with specific focus on 
+ *Core Web Vitals metrics (e.g., Largest Contentful Paint, First Input Delay, Cumulative Layout Shift) to help optimize the user experience.
+ */
+
 {
+  // Extends the Next.js core web vitals configuration
   "extends": "next/core-web-vitals"
 }
