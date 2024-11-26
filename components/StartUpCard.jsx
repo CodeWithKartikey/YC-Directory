@@ -42,9 +42,11 @@ const StartUpCard = ({ post }) => {
 
       <Link href={`/startup/${post?.slug?.current}`}>
         <p className="startup-card_desc">{post?.description}</p>
-        <img
+        <Image
           src={post?.image}
           alt={`${post?.title} image`}
+          width={300}
+          height={150}
           className="startup-card_img"
         />
       </Link>
