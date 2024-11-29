@@ -13,12 +13,9 @@ export const experimental_ppr = true;
 const page = async ({ params }) => {
 
   const id = (await params).id;
-
   const session = await auth();
-
   const user = await client.fetch(AUTHOR_QUERY_BY_ID, { id });
   if(!user) return notFound();
-
   return (
     <>
       <section className="profile_container">
@@ -28,7 +25,6 @@ const page = async ({ params }) => {
               {user?.name}
             </h3>
           </div>
-          
           <Image 
             src={user?.image}
             alt={user?.name}
@@ -36,11 +32,9 @@ const page = async ({ params }) => {
             height={220}
             className="profile_image"
           />
-
           <p className="text-30-extrabold text-center mt-7">@{user?.username}</p>
           <p className="text-14-normal text-center mt-1">{user?.bio}</p>
         </div>
-
         <div className="gap-5 flex-1 flex flex-col lg:-mt-5">
           <p className="text-30-bold">{session?.user?.id === id ? "Your" : "All"} Startups</p>
           <ul className="card_grid-sm">

@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import Head from "next/head";
-import * as Sentry from "@sentry/nextjs";
+import Head from 'next/head';
+
+import * as Sentry from '@sentry/nextjs';
 
 export default function Page() {
   return (
@@ -10,7 +11,6 @@ export default function Page() {
         <title>Sentry Onboarding</title>
         <meta name="description" content="Test Sentry for your Next.js app!" />
       </Head>
-
       <main
         style={{
           minHeight: "100vh",
@@ -34,7 +34,6 @@ export default function Page() {
             ></path>
           </svg>
         </h1>
-
         <p>Get started by sending us a sample error:</p>
         <button
           type="button"
@@ -62,7 +61,6 @@ export default function Page() {
         >
           Throw error!
         </button>
-
         <p>
           Next, look for the error on the{" "}
           <a href="https://kartikey-narayan.sentry.io/issues/?project=4508352522682448">Issues Page</a>.

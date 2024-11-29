@@ -1,13 +1,14 @@
 import React, { Suspense } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+import { formatDate } from '@/lib/utils';
+
 import View from '@/components/View';
 import StartUpCard from '@/components/StartUpCard';
 import { Skeleton } from '@/components/ui/skeleton';
-
-import { formatDate } from '@/lib/utils';
 
 import { client } from '@/sanity/lib/client';
 import { PLAYLIST_QUERY_BY_SLUG, STARTUP_QUERY_BY_SLUG } from '@/sanity/lib/queries';
@@ -20,16 +21,12 @@ export const experimental_ppr = true;
 const page = async ({ params }) => {
 
   const slug = (await params).slug;
-
   const [post, { select: editorPosts}] = await Promise.all([
     await client.fetch(STARTUP_QUERY_BY_SLUG, { slug }),
     await client.fetch(PLAYLIST_QUERY_BY_SLUG, { slug: "editor-pick"})
   ]);
-
   if(!post) return notFound();
-
   const parsedContent = markdown.render(post?.pitch || "");
-
   return (
     <>
       <section className="pink_container !min-h-[230px]">
@@ -37,13 +34,12 @@ const page = async ({ params }) => {
         <h1 className="heading">{post?.title}</h1>
         <p className="sub-heading !max-w-5xl">{post?.description}</p>
       </section>
-
       <section className="section_container">
         <Image
           src={post?.image} 
           alt={`${post?.title} Picture`} 
-          width={500}
-          height={400}
+          width={320}
+          height={160}
           className="w-full h-auto rounded-xl" 
         />
         <div className="space-y-5 max-w-4xl mx-auto mt-10">
@@ -59,16 +55,13 @@ const page = async ({ params }) => {
                 height={64}
                 className="rounded-full drop-shadow-lg"
               />
-
               <div>
                 <p className="text-20-medium">{post?.author?.name}</p>
                 <p className="text-16-medium !text-black-300">@{post?.author?.username}</p>
               </div>
             </Link>
-
             <p className="category-tag">{post?.category}</p>
           </div>
-
           <h3 className="text-30-bold">Pitch Details</h3>
           {
             parsedContent
@@ -82,7 +75,6 @@ const page = async ({ params }) => {
           }
         </div>
         <hr className="divider" />
-
         <Suspense fallback={<p className="text-14-normal text-center text-black">Loading the startups ...</p>}>
           {
             editorPosts?.length > 0 && (
@@ -100,7 +92,6 @@ const page = async ({ params }) => {
             )
           }
         </Suspense>
-
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
           <View slug={slug} />
         </Suspense>

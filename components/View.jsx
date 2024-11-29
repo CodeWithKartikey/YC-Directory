@@ -9,9 +9,7 @@ import { writeClient } from '@/sanity/lib/write-client';
 const View = async ({ slug }) => {
 
   const post = await client.withConfig({ useCdn: false }).fetch(STARTUP_VIEW, { slug });
-
   after(async () => await writeClient.patch(post?._id).set({ views: (post?.views || 0) + 1 }).commit());
-
   return (
     <div className="view-container">
       <div className="absolute -top-2 -right-2">

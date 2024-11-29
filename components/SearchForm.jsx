@@ -17,10 +17,8 @@ const SearchForm = ({ query }) => {
           className="search-input"
           required 
         />
-
         <div className='gap-2 flex'>
           {query && <SearchFormResetButton />}
-
           <button type="submit" className="text-white search-btn">
             <Search className="size-5" />
           </button>

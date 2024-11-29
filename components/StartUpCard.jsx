@@ -18,7 +18,6 @@ const StartUpCard = ({ post }) => {
           <span className="text-16-medium">{post?.views}</span>
         </div>
       </div>
-
       <div className="gap-5 flex-between mt-5">
         <div className="flex-1">
           <Link href={`/user/${post?.author?._id}`}>
@@ -39,7 +38,6 @@ const StartUpCard = ({ post }) => {
           />
         </Link>
       </div>
-
       <Link href={`/startup/${post?.slug?.current}`}>
         <p className="startup-card_desc">{post?.description}</p>
         <Image
@@ -50,7 +48,6 @@ const StartUpCard = ({ post }) => {
           className="startup-card_img"
         />
       </Link>
-
       <div className="gap-5 flex-between mt-5">
         <Link href={`?query=${post?.category?.toLowerCase()}`}>
           <p className="text-16-medium">{post?.category}</p>

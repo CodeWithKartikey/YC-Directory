@@ -12,8 +12,9 @@ import { structureTool } from 'sanity/structure';
 // Import environment variables and schema definitions.
 import { schema } from '@/sanity/schemaTypes';
 import { structure } from '@/sanity/structure';
-import { markdownSchema } from 'sanity-plugin-markdown';
 import { apiVersion, dataset, projectId } from '@/sanity/env';
+
+import { markdownSchema } from 'sanity-plugin-markdown';
 
 export default defineConfig({
   basePath: "/studio", // Base path for the Studio.
@@ -30,6 +31,6 @@ export default defineConfig({
     // Vision tool for querying with GROQ directly from the Studio.
     visionTool({ defaultApiVersion: apiVersion }),
     // Markdown schema plugin for editing Markdown content.
-    markdownSchema()
+    markdownSchema(),
   ],
 });

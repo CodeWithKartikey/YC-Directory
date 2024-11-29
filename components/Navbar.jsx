@@ -6,12 +6,12 @@ import Image from 'next/image';
 import { auth, signOut } from '@/auth';
 
 import { BadgePlusIcon, LogInIcon, LogOutIcon } from 'lucide-react';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Navbar = async () => {
 
   const session= await auth();
-
   return (
     <header className="px-6 py-4 font-work-sans bg-gray-50 shadow-sm">
       <nav className="flex items-center justify-between">
@@ -24,7 +24,6 @@ const Navbar = async () => {
             priority
           />
         </Link>
-
         <div className="gap-6 flex items-center text-black">
           {
             session && session?.user 
@@ -38,7 +37,6 @@ const Navbar = async () => {
                   <BadgePlusIcon className="w-6 h-6 text-primary" />
                   <span>Create</span>
                 </Link>
-
                 <form action={
                   async() => 
                   {
@@ -54,7 +52,6 @@ const Navbar = async () => {
                     <span>Logout</span>
                   </button>
                 </form>
-
                 <Link href={`/user/${session?.user?.id}`}>
                   <Avatar className="size-10 cursor-pointer">
                     <AvatarImage src={session?.user?.image} alt={session?.user?.name} />

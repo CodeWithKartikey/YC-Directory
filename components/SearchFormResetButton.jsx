@@ -14,7 +14,6 @@ const SearchFormResetButton = () => {
       console.log('Form reset successfully');
     }
   };
-
   return (
     <>
       <button type="reset" onClick={resetForm}>
